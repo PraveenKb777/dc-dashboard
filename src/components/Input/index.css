@@ -1,0 +1,19 @@
+.input_main-cont {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.input_main-label {
+  color: #100f0f99;
+  margin-bottom: 13px;
+}
+
+.input_main-input {
+  padding: 10px;
+  border-color: #000b2133;
+  width: 100%;
+}
+.input_main-input::placeholder {
+  font-size: 16px;
+  font-style: italic;
+}

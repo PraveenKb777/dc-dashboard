@@ -1,0 +1,121 @@
+.details_view_main_cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.details_view_header_main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.details_view_items_main_cont {
+  flex-grow: 1;
+  overflow: scroll;
+}
+.details_box {
+  padding: 10px;
+  border-radius: 5px;
+  border-color: #9d9d9d80;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.feed_back_list_cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex: 1;
+  overflow-y: scroll;
+  align-content: flex-start;
+}
+.feedback_item_cont {
+  width: 49%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-start;
+}
+
+.feed_back_view_more_cont {
+  border-color: #0075ff;
+  font-style: italic;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.feed_back_view_more_cont:hover {
+  background: #f2eaea80;
+  border-color: #2b7fe0;
+}
+.details_view_header_heading {
+  color: rgba(0, 0, 0, 0.7);
+
+  font-family: Roboto;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+}
+.details_view_header_right_main {
+}
+.box-shadow {
+  box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.19);
+}
+.feed_back_item_variables {
+}
+
+.feed_back_item_gender_know_more_cont {
+}
+.details_view-pagenation-main {
+  width: 100%;
+  background-color: #0075ff;
+  padding: 10px;
+  align-self: flex-end;
+  margin-top: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.details_view_pagenation {
+  display: flex;
+  align-items: center;
+}
+
+.pagenation_item_main {
+  display: flex;
+  align-items: center;
+}
+.pagenation_next_prev_main {
+  display: flex;
+}
+
+.pagenation_arrow_cont {
+  background-color: #fff;
+  width: 40px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  transition: all 0.5s;
+}
+
+.pagenation_arrow_cont:hover {
+  opacity: 0.8;
+}
+.pagenationRotate {
+  rotate: 180deg;
+  margin-right: 10px;
+}
+.download_btn {
+  color: #fff;
+  text-decoration: none;
+  background: #0075ff;
+  transition: all 0.5s;
+}
+.download_btn:hover {
+  background: #0075ff90;
+  color: #000;
+}

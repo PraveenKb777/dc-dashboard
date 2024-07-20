@@ -1,0 +1,45 @@
+.bmi_card_top_main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.bmi_card_top_main > p {
+  flex: 1;
+}
+.bmi_card_bottom_main {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bmi_card_seperator {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bmi_card_seperator_vertical {
+  height: 25px;
+  width: 2px;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.bmi_card_item {
+  color: #000;
+
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+}
+.bmi_card_value {
+  color: #000;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

@@ -1,0 +1,25 @@
+.login_main-cont {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.login_img-cont {
+  height: 100%;
+  width: 50%;
+  background-color: #d9d9d999;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.login_img-main {
+  max-width: 100%;
+}
+
+.login_form-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px;
+  width: 50%;
+}
