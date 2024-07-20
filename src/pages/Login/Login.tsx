@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { FC, useCallback, useEffect, useState } from "react";
-import Input from "../../components/Input/Input";
-import "./index.css";
+import { FC, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import mockup from "../../assets/Mockup.png";
 import Button from "../../components/Button/Button";
+import Input from "../../components/Input/Input";
 import auth from "../../util/auth";
-import { useNavigate } from "react-router-dom";
 import { validate } from "../../util/validation";
+import "./index.css";
 const Login: FC = () => {
-  const [showPass, setShowPass] = useState(false);
+  const [showPass] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [load, setLoad] = useState(false);

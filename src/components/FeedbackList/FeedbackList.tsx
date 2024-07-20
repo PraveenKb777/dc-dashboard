@@ -1,5 +1,4 @@
- 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import auth from "../../util/auth";
 
 import customParse from "dayjs/plugin/customParseFormat";
@@ -36,11 +35,10 @@ const FeedbackList = () => {
   const [page, setPage] = useState(1);
   const [resultData, setResultData] = useState<IRestData>();
   const [list, setList] = useState<IFeedbackResults[]>([]);
-  useEffect(() => {
-    getFeedBack();
-  }, []);
-  const getFeedBack = async () => {
-    const res = await auth.get<IFeedbacResponse>("/admin/feedback");
+
+  const getFeedBack = useCallback(async () => {
+    const url = `/admin/feedback?limit=20&order_by=${order_by}&page=${page}&date=${date}`;
+    const res = await auth.get<IFeedbacResponse>(url);
     const {
       count,
       currentPage,
@@ -59,7 +57,10 @@ const FeedbackList = () => {
       totalPages,
     });
     setList(result);
-  };
+  }, [order_by, date, page]);
+  useEffect(() => {
+    getFeedBack();
+  }, [getFeedBack]);
   return (
     <div
       style={{
