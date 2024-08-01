@@ -86,9 +86,16 @@ const findModyLevel = (val: number) => {
   return cat;
 };
 
-const BMICard: FC<{ item: TResultsData }> = ({ item }) => {
+const BMICard: FC<{ item: TResultsData; onClick?: () => void }> = ({
+  item,
+  onClick,
+}) => {
   return (
-    <div className="details_box box-shadow" style={{ marginBottom: 20 }}>
+    <div
+      onClick={onClick && onClick}
+      className="details_box box-shadow"
+      style={{ marginBottom: 20, cursor: onClick ? "pointer" : undefined }}
+    >
       <div className="bmi_card_top_main">
         <BMIItem label="Name" value={item.name} />
         <BMIItem label="Created By" value={item.user_name} />
@@ -110,12 +117,14 @@ const BMICard: FC<{ item: TResultsData }> = ({ item }) => {
 
         <BMIItem label="Height" value={item.height_cm} unit="cm" />
         <BMIItem label="Waist" value={item.waist_cm} unit="cm" />
-
+        <BMIItem label="Total Energy" value={item.energy_kcal} unit="kacl" />
         <div className="bmi_card_seperator_vertical" />
+        <BMIItem label="Carbohydrate" value={item.carbohydrate_g} unit="gm" />
         <BMIItem label="Weight" value={item.weight_kg} unit="kg" />
         <BMIItem label="Hip" value={item.hip_cm} unit="cm" />
         <BMIItem label="DRF Score" value={item.drf_score} />
         <div className="bmi_card_seperator_vertical" />
+        <BMIItem label="Protein" value={item.protein_g} unit="gm" />
         {item.mody_score ? null : (
           <BMIItem
             label="Category"
@@ -139,6 +148,9 @@ const BMICard: FC<{ item: TResultsData }> = ({ item }) => {
         {item.drf_score ? null : (
           <div className="bmi_card_seperator_vertical" />
         )}
+        <BMIItem label="Fat" value={item.fat_g} unit="gm" />
+        {item.fiber_g ? <div className="bmi_card_seperator_vertical" /> : null}
+        <BMIItem label="Fiber" value={item.fiber_g} unit="gm" />
         <BMIItem label="BMI Score" value={item.bmi_score} />
         <BMIItem label="WHR Score" value={item.whr_score} />
         {item.mody_score ? (

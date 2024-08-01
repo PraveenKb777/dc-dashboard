@@ -3,11 +3,16 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
+import { SidebarProvider } from "./context/sideBar.tsx";
+import Sidebar from "./context/SideBarComp.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <SidebarProvider>
+      <BrowserRouter>
+        <App />
+        <Sidebar />
+      </BrowserRouter>
+    </SidebarProvider>
   </React.StrictMode>
 );

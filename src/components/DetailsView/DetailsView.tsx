@@ -6,6 +6,7 @@ import { SingleArrow, TripleArrow } from "../../assets/SVG";
 import auth from "../../util/auth";
 import BMICard from "../BMICard/BMICard";
 import "./index.css";
+import { useSidebar } from "../../context/sideBar";
 export type TBMIResData = {
   name: string;
   height_cm: number;
@@ -60,6 +61,16 @@ export type TDRFResData = {
   user_name: string;
   drf_data_id: string;
 };
+
+export type TCMPResData = {
+  carbohydrate_g: number;
+  created_at: Date;
+  energy_kcal: number;
+  fat_g: number;
+  fiber_g: number;
+  cmp_data_id: string;
+  protein_g: number;
+};
 export interface IRestData {
   count: number;
   total: number;
@@ -72,7 +83,8 @@ export interface IRestData {
 export type TResultsData = TBMIResData &
   TWHRResData &
   TMODYResData &
-  TDRFResData;
+  TDRFResData &
+  TCMPResData;
 
 interface IResponseData extends IRestData {
   success: boolean;
@@ -181,7 +193,7 @@ const DetailsView = () => {
   const [page, setPage] = useState(1);
   const [list, setList] = useState<TResultsData[]>([]);
   const [resultData, setResultData] = useState<IRestData>();
-
+  const { openSidebar } = useSidebar();
   const fetchData = useCallback(async () => {
     try {
       const url = `/admin/${route}?limit=20&order_by=${order_by}&page=${page}&date=${date}`;
@@ -280,8 +292,15 @@ const DetailsView = () => {
         {list.map((e) => (
           <BMICard
             item={e}
+            onClick={
+              e.cmp_data_id ? () => openSidebar(e.cmp_data_id) : undefined
+            }
             key={
-              e.bmi_data_id || e.mody_data_id || e.drf_data_id || e.whr_data_id
+              e.bmi_data_id ||
+              e.mody_data_id ||
+              e.drf_data_id ||
+              e.whr_data_id ||
+              e.cmp_data_id
             }
           />
         ))}
