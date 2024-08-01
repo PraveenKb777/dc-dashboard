@@ -1,5 +1,6 @@
+/* eslint-disable react-refresh/only-export-components */
 // src/SidebarContext.tsx
-import React, { createContext, useState, ReactNode, useEffect } from "react";
+import React, { createContext, ReactNode, useState } from "react";
 import auth from "../util/auth";
 
 interface SidebarContextProps {

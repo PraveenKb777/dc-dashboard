@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import mockup from "../../assets/Mockup.png";
