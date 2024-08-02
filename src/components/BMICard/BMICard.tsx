@@ -75,7 +75,7 @@ const findBodyGrade = (val: number, gender: string = "male") => {
 const findModyLevel = (val: number) => {
   let cat: string;
 
-  if (val < 30) {
+  if (val <= 30) {
     cat = "Low";
   } else if (val >= 31 && val < 61) {
     cat = "Moderate";
