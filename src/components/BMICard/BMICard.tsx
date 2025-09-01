@@ -115,6 +115,7 @@ const BMICard: FC<{ item: TResultsData; onClick?: () => void }> = ({
         <BMIItem label="Age" value={item.age} />
         {item.age ? <div className="bmi_card_seperator_vertical" /> : null}
 
+        {item.whr &&<BMIItem label="Whr" value={item.whr.toFixed(2)} unit="cm" />}
         <BMIItem label="Height" value={item.height_cm} unit="cm" />
         <BMIItem label="Waist" value={item.waist_cm} unit="cm" />
         <BMIItem label="Total Energy" value={item.energy_kcal} unit="kacl" />
@@ -123,6 +124,7 @@ const BMICard: FC<{ item: TResultsData; onClick?: () => void }> = ({
         <BMIItem label="Weight" value={item.weight_kg} unit="kg" />
         <BMIItem label="Hip" value={item.hip_cm} unit="cm" />
         <BMIItem label="DRF Score" value={item.drf_score} />
+        <BMIItem label="Yadr Score" value={item.yadr_score} />
         <div className="bmi_card_seperator_vertical" />
         <BMIItem label="Protein" value={item.protein_g} unit="gm" />
         {item.mody_score ? null : (
@@ -145,6 +147,10 @@ const BMICard: FC<{ item: TResultsData; onClick?: () => void }> = ({
           label="Risk Level"
           value={item.drf_score ? findDrfGrade(item.drf_score) : item.drf_score}
         />
+        {item.bmi &&<BMIItem
+          label="BMI Score"
+          value={(item.bmi).toFixed(2)}
+        />}
         {item.drf_score ? null : (
           <div className="bmi_card_seperator_vertical" />
         )}

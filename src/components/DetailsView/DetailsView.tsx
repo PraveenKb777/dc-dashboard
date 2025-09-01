@@ -79,12 +79,27 @@ export interface IRestData {
   prevPage: null | number;
   totalPages: number;
 }
+export interface IYADRResults {
+  id: string;
+  name: string;
+  age: number;
+  bmi: number; // Body Mass Index
+  whr: number; // Waist-Hip Ratio
+  generation_diabetes: number; // No family history / Either parent / Both parents
+  parent_diabetes: number; // Possibly binary (0/1) if a parent has diabetes
+  random_blood_glucose: number; // mg/dL
+  bp_sys: number; // Systolic BP
+  bp_dia: number; // Diastolic BP
+  physical_activity: number; // Coded from score table
+  yadr_score: number; // Final calculated score
+  created_at: string; // ISO date string
+}
 
 export type TResultsData = TBMIResData &
   TWHRResData &
   TMODYResData &
   TDRFResData &
-  TCMPResData;
+  TCMPResData&IYADRResults
 
 interface IResponseData extends IRestData {
   success: boolean;
@@ -277,6 +292,7 @@ const DetailsView = () => {
             <option value="mody">MODY</option>
             <option value="drf">DRF</option>
             <option value="cmp">CMP</option>
+            <option value="yadr">YADR</option>
           </select>
           <CSVLink
             className="details_box download_btn"
